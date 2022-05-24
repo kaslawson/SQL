@@ -1,0 +1,54 @@
+--Create a Clothing Store database!
+
+CREATE TABLE store (id integer primary key, brand text, name text, quanity integer, price integer);
+
+INSERT INTO store VALUES
+(1, "Gucci", "TShirt", 10, 25);
+
+INSERT INTO store VALUES
+(2, "Nike", "Joggers", 15, 30);
+
+INSERT INTO store VALUES
+(3, "Addidas", "Shoes", 5, 50);
+
+INSERT INTO store VALUES
+(4, "Prada", "Bag", 3, 15);
+
+INSERT INTO store Values
+(5, "Ray Bans", "Sunglasses", 5, 50);
+
+INSERT INTO store VALUES
+(6, "Columbia", "Jacket", 5, 25);
+
+INSERT INTO store VALUES
+(7, "Guess", "Jeans", 12, 35);
+
+INSERT INTO store VALUES
+(8, "Coach", "Umbrella", 3, 20);
+
+INSERT INTO store VALUES
+(9, "North_Face", "Hat", 3, 15);
+
+INSERT INTO store VALUES
+(10, "Michael_Kors", "Wallet", 4, 20);
+
+INSERT INTO store VALUES
+(11, "GAP", "Jewlrey", 10, 5);
+
+INSERT INTO store VALUES
+(12, "American_Eagle", "Blouse", 5, 10);
+
+INSERT INTO store VALUES
+(13, "Kate_Spade", "Coin_Purse", 3, 5);
+
+INSERT INTO store VALUES
+(14, "Pandora", "Braclet", 2, 15);
+
+INSERT INTO store VALUES
+(15, "Great_Value", "Socks", 10, 3);
+
+--What is the most expensive item in the store?
+SELECT * FROM store ORDER BY price;
+
+--If all the items in the store were sold, how much would the total be?
+SELECT SUM(quanity) FROM store DESC;
