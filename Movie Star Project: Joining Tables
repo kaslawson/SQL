@@ -1,0 +1,35 @@
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY, name TEXT, started_career INTEGER, popular_movie TEXT, popularity_ranking INTEGER);
+
+INSERT INTO movie_stars VALUES (1, "Johnny Depp", 1984, "Pirates curse of the black pearl", 1);
+INSERT INTO movie_stars VALUES (2, "Drew Barrymore", 1980, "E.T", 5);
+INSERT INTO movie_stars VALUES (3, "Tom Cruise", 1981, "Top Gun", 4);
+INSERT INTO movie_stars VALUES (4, "Will Smith", 1986, "Men In Black", 6);
+INSERT INTO movie_stars VALUES (5, "Julia Roberts", 1987, "Mystic Pizza", 3);
+INSERT INTO movie_stars VALUES (6, "Ryan Reynolds", 1991, "Mississippi Grind", 8);
+INSERT INTO movie_stars VALUES (7, "Angelina Jolie", 1982, "Girl, Interrupted", 2);
+INSERT INTO movie_stars VALUES (8, "Mark Wahlberg", 1993, "Three Kings", 7);
+INSERT INTO movie_stars VALUES (9, "Denzel Washington", 1977, "Malcom X", 11);
+INSERT INTO movie_stars VALUES (10, "Jennifer Lawrence", 2005, "Winters Bone", 10);
+
+
+CREATE TABLE nineties_movies (id INTEGER PRIMARY KEY, title TEXT, movie_star_id INTEGER);
+INSERT INTO nineties_movies VALUES (1, "Love is all there", 7);
+INSERT INTO nineties_movies VALUES (2, "Bad Boys", 4);
+INSERT INTO  nineties_movies VALUES (3, "The Astronaut's Wife", 1);
+INSERT INTO nineties_movies VALUES (4, "Stepmom", 5);
+INSERT INTO nineties_movies VALUES (5, "He Got Game", 9);
+
+
+/*Which movie stars started their career before 1990 and is in the top 3 popularit ranking?*/
+
+SELECT name, started_career, popularity_ranking
+FROM movie_stars
+WHERE started_career <=1990 AND popularity_ranking <=3
+ORDER BY popularity_ranking;
+
+/*Join tables together to see the movie star's names next to the movies they did in the 90s.*/
+SELECT movie_stars.name, nineties_movies.title
+FROM movie_stars
+JOIN nineties_movies
+ON movie_stars.id=nineties_movies.movie_star_id
+ORDER BY movie_stars.id;
